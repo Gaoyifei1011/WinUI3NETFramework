@@ -1,0 +1,79 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<ApplicationManifest>WinUI3NETFramework.manifest</ApplicationManifest>
+		<AssemblyName>WinUI3NETFramework</AssemblyName>
+		<CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+		<CustomAfterMicrosoftCommonTargets>$(SolutionDir)Configuration\XamlCompiler.targets</CustomAfterMicrosoftCommonTargets>
+		<DefaultXamlRuntime>WinUI</DefaultXamlRuntime>
+		<DefineConstants>DISABLE_XAML_GENERATED_MAIN</DefineConstants>
+		<Deterministic>true</Deterministic>
+		<DesktopCompatible>true</DesktopCompatible>
+		<DisableXbfLineInfo>false</DisableXbfLineInfo>
+		<EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+		<EnableDefaultPageItems>false</EnableDefaultPageItems>
+		<EnablePriGenTooling>true</EnablePriGenTooling>
+		<EnableTypeInfoReflection>false</EnableTypeInfoReflection>
+		<_EnableWindowsDesktopGlobbing>true</_EnableWindowsDesktopGlobbing>
+		<_EnableWindowsDesktopNETFrameworkImplicitReference>true</_EnableWindowsDesktopNETFrameworkImplicitReference>
+		<ImportWindowsDesktopTargets>false</ImportWindowsDesktopTargets>
+		<ImportFrameworkWinFXTargets>false</ImportFrameworkWinFXTargets>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<IncludeSymbols>false</IncludeSymbols>
+		<LangVersion>latest</LangVersion>
+		<Optimize>false</Optimize>
+		<OutputType>WinExe</OutputType>
+		<Platforms>x86;x64;ARM64</Platforms>
+		<ResolveComReferenceSilent>true</ResolveComReferenceSilent>
+		<RootNamespace>WinUI3NETFramework</RootNamespace>
+		<RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+		<TargetFramework>net481</TargetFramework>
+		<TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
+		<TargetPlatformVersion>10.0.26100.0</TargetPlatformVersion>
+		<TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+		<UsingMicrosoftNETSdk>false</UsingMicrosoftNETSdk>
+		<WindowsAppSDKVerifyCsWinRtVersions>false</WindowsAppSDKVerifyCsWinRtVersions>
+  </PropertyGroup>
+
+	<PropertyGroup Condition="'$(Platform)'=='x86'">
+		<RuntimeIdentifier>win-x86</RuntimeIdentifier>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Platform)'=='x64'">
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Platform)'=='ARM64'">
+		<RuntimeIdentifier>win-arm64</RuntimeIdentifier>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<DebuggerSupport>true</DebuggerSupport>
+		<DebugType>pdbonly</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<DebuggerSupport>false</DebuggerSupport>
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="MainWindow.xaml" />
+		
+		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3537.50" IncludeAssets="None" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.Windows.SDK.BuildTools.MSIX" Version="1.7.20250829.1" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
+		<PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.26100.6584" />
+		<PackageReference Include="Microsoft.WindowsAppSDK.Base" Version="1.8.250831001" />
+		<PackageReference Include="Microsoft.WindowsAppSDK.Foundation" Version="1.8.250906002" />
+		<PackageReference Include="Microsoft.WindowsAppSDK.InteractiveExperiences" Version="1.8.250906004" GeneratePathProperty="True" />
+		<PackageReference Include="Microsoft.WindowsAppSDK.Runtime" Version="1.8.250916003" />
+		<PackageReference Include="Microsoft.WindowsAppSDK.WinUI" Version="1.8.250906003" GeneratePathProperty="True" IncludeAssets="None" PrivateAssets="all" />
+		<PackageReference Include="System.Numerics.Vectors" Version="4.6.1" />
+		<PackageReference Include="System.Private.Uri" Version="4.3.2" />
+
+		<Page Include="MainWindow.xaml" XamlRuntime="$(DefaultXamlRuntime)" />
+
+		<Reference Include="$(PkgMicrosoft_WindowsAppSDK_InteractiveExperiences)\metadata\10.0.18362.0\Microsoft.UI.winmd" />
+		<Reference Include="$(PkgMicrosoft_WindowsAppSDK_WinUI)\metadata\Microsoft.UI.Text.winmd" />
+		<Reference Include="$(PkgMicrosoft_WindowsAppSDK_WinUI)\metadata\Microsoft.UI.Xaml.winmd" />
+	</ItemGroup>
+</Project>

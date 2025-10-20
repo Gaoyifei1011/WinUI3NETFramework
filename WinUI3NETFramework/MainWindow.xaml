@@ -1,0 +1,13 @@
+﻿<Window
+    x:Class="WinUI3NETFramework.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:Microsoft.UI.Xaml.Media">
+    <Window.SystemBackdrop>
+        <media:MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button Click="Button_Click" Content="Click me" />
+    </Grid>
+</Window>
