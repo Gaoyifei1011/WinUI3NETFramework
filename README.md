@@ -1,6 +1,6 @@
 # WinUI3NETFramework
 
-Using WinUI 3 in the.NET Framework
+Using WinUI 3 in the .NET Framework
 
 ##### ---------------------
 
